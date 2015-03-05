@@ -5,8 +5,8 @@
     "version" : "1.0.0-SNAPSHOT",
     "title" : "Cfair trial REST API"
   },
-  "host" : "cfair-ferrum.rhcloud.com",
-  "basePath" : "/",
+  "host" : "ec2-52-11-167-61.us-west-2.compute.amazonaws.com:8080",
+  "basePath" : "/cfair",
   "schemes" : [ "http", "https" ],
   "consumes" : [ "application/json" ],
   "produces" : [ "application/json" ],
