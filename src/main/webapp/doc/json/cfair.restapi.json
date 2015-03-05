@@ -107,7 +107,7 @@
     "/service/list" : {
       "get" : {
         "description" : "returns trade message list",
-        "opertaionId" : "getList",
+        "operationId" : "getList",
         "responses" : {
           "200" : {
             "description" : "normal response",
