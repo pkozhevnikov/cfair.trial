@@ -20,6 +20,16 @@ $("#submit").click(function() {
 		success: function() {
 			clearFields();
 			showMsg("Posted successfully", "success");
+			$("#list tbody")
+			.append($("<tr>")
+				.append($("<td>").text(req.userId))
+				.append($("<td>").text(req.currencyFrom + "/" + req.currencyTo))
+				.append($("<td>").text(req.rate))
+				.append($("<td>").text(req.amountBuy))
+				.append($("<td>").text(req.amountSell))
+				.append($("<td>").text(req.timePlaced))
+				.append($("<td>").text(req.originatingCountry)));
+
 		},
 		error: ajaxError
 	});

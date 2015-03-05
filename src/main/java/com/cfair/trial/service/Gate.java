@@ -37,7 +37,7 @@ public class Gate {
 	@POST
 	@Path("add")
 	public void add(TradeMessage message) throws ProcessingException {
-		Future<TradeMessage> fut = processor.add(message);
+		Future<TradeMessage> fut = processor.addValidated(message);
 		try { 
 			fut.get();
 			log.info("added {} syncly", message.getUuid());
