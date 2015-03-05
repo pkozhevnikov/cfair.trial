@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>com.cfair.trial :: Live data</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link href="css/simple-sidebar.css" rel="stylesheet">
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.atmosphere-min.js"></script>
+<script src="js/canvasjs.min.js"></script>
+<style type="text/css">
+.cursor-pointer {
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+	<div id="wrapper">
+
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand"><a href="">1.0.0-SNAPSHOT</a></li>
+				<li><a href="index.html">live</a></li>
+				<li><a href="simple.html">simple</a></li>
+				<li><a href="doc/" target="_blank">REST API doc</a>
+			</ul>
+		</div>
+		
+		<div id="page-content-wrapper">
+
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12" id="cont">
+						<div class="page-header">
+							<h1>Live data</h1>
+						</div>
+						
+						<div id="chartContainer" style="width:600px;height:300px;"></div>
+						
+						<table class="table" id="summary">
+							<thead>
+								<tr>
+									<th>Pair</th>
+									<th>Time</th>
+									<th>Open</th>
+									<th>Low</th>
+									<th>Hight</th>
+									<th>Close</th>
+									<th>Messages</th>
+									<th>Total buy</th>
+									<th>Total sell</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+						
+						<div id="log"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+<script>
+var ratesUrl = "http://localhost:8080/cfair/live";
+</script>
+
+<script src="js/live.js"></script>
+</body>
+</html>

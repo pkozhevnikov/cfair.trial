@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>com.cfair.trial :: Simple</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link href="css/simple-sidebar.css" rel="stylesheet">
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.atmosphere-min.js"></script>
+<style type="text/css">
+.cursor-pointer {
+	cursor: pointer;
+}
+.error,.success{padding:10px;color:black;display:block;margin-bottom:20px}
+.error{background:#ffd9d9;border:1px solid #ff9999;}
+.success{background:#d5ffb3;border:1px solid #9cdc68;}
+.hidden{display:none}
+</style>
+</head>
+<body>
+
+	<div id="wrapper">
+
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand"><a href="">1.0.0-SNAPSHOT</a></li>
+				<li><a href="index.html">live</a></li>
+				<li><a href="simple.html">simple</a></li>
+				<li><a href="doc/" target="_blank">REST API doc</a>
+			</ul>
+		</div>
+		
+		<div id="page-content-wrapper">
+
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12" id="cont">
+					
+						<div class="page-header">
+							<h1>Simple input</h1>
+						</div>
+						
+						<div id="msg" style=""></div>
+						
+						<form role="form" class="form-horizontal">
+							
+							<div class="form-group">
+								<label for="userId" class="control-label col-sm-3">User ID</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="userId" placeholder="User ID" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="timePlaced" class="control-label col-sm-3">Time placed</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="timePlaced" placeholder="Time placed" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="currencyFrom" class="control-label col-sm-3">Currency from</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="currencyFrom" placeholder="Currency from" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="currencyTo" class="control-label col-sm-3">Currency to</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="currencyTo" placeholder="Currency to" />
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="amountBuy" class="control-label col-sm-3">Amount buy</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="amountBuy" placeholder="Amount buy" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="amountSell" class="control-label col-sm-3">Amount sell</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="amountSell" placeholder="Amount sell" />
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="rate" class="control-label col-sm-3">Rate</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="rate" placeholder="Rate" />
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="originatingCountry" class="control-label col-sm-3">Originating country</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="originatingCountry" placeholder="Originating country" />
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-9">
+									<button type="button" class="btn btn-primary" id="submit">Submit</button>
+								</div>
+							</div>
+						</form>
+						
+						<button type="button" class="btn btn-link" id="refresh">Refresh list</button>
+						<table class="table" id="list">
+							<thead>
+								<tr>
+									<th>User ID</th>
+									<th>Currency pair</th>
+									<th>Rate</th>
+									<th>Amount buy</th>
+									<th>Amount sell</th>
+									<th>Time placed</th>
+									<th>Country</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+						
+						<div id="log"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+<script>
+var serviceUrl = "http://localhost:8080/cfair/service";
+</script>
+
+<script src="js/simple.js"></script>
+</body>
+</html>

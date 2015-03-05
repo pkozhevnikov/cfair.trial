@@ -1,0 +1,203 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "",
+    "version" : "1.0.0-SNAPSHOT",
+    "title" : "Cfair trial REST API"
+  },
+  "host" : "cfair-ferrum.rhcloud.com",
+  "basePath" : "/",
+  "schemes" : [ "http", "https" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+  	"/service" : {
+      "post" : {
+        "description" : "endpoint for massive POST of trade messages. Makes postponed validation of incoming messages. Posted messages are seen at live frontend part",
+        "operationId" : "put",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "tradeMessage",
+          "required" : true,
+          "schema" : {
+          	"$ref" : "#/definitions/TradeMessage"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "message processed successfully"
+          },
+          "422" : {
+          	"description" : "inconsistent data",
+          	"schema" : {
+          		"$ref" : "#/definitions/ExceptionResponse"
+          	}
+          },
+          "500" : {
+          	"description" : "application error",
+          	"schema" : {
+          		"$ref" : "#/definitions/ExceptionResponse"
+          	}
+          }
+        }
+      }
+    },
+  	"/service/add" : {
+      "post" : {
+        "description" : "endpoint for synchronous POST of trade messages. Use this for test only. Posted messages are seen in 'simple' frontend part. Don't use it for massive posts",
+        "operationId" : "put",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "tradeMessage",
+          "required" : true,
+          "schema" : {
+          	"$ref" : "#/definitions/TradeMessage"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "message processed successfully"
+          },
+          "422" : {
+          	"description" : "inconsistent data",
+          	"schema" : {
+          		"$ref" : "#/definitions/ExceptionResponse"
+          	}
+          },
+          "500" : {
+          	"description" : "application error",
+          	"schema" : {
+          		"$ref" : "#/definitions/ExceptionResponse"
+          	}
+          }
+        }
+      }
+    },
+  	"/service/addasync" : {
+      "post" : {
+        "description" : "endpoint for Asynchronous POST of trade messages. Use this for test only. Posted messages are seen in 'simple' frontend part. Don't use it for massive posts",
+        "operationId" : "put",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "tradeMessage",
+          "required" : true,
+          "schema" : {
+          	"$ref" : "#/definitions/TradeMessage"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "message processed successfully"
+          },
+          "422" : {
+          	"description" : "inconsistent data",
+          	"schema" : {
+          		"$ref" : "#/definitions/ExceptionResponse"
+          	}
+          },
+          "500" : {
+          	"description" : "application error",
+          	"schema" : {
+          		"$ref" : "#/definitions/ExceptionResponse"
+          	}
+          }
+        }
+      }
+    },
+    "/service/list" : {
+      "get" : {
+        "description" : "returns trade message list",
+        "opertaionId" : "getList",
+        "responses" : {
+          "200" : {
+            "description" : "normal response",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/TradeMessage"
+              }
+            }
+          },
+          "500" : {
+          	"description" : "application error",
+          	"schema" : {
+          		"$ref" : "#/definitions/ExceptionResponse"
+          	}
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "TradeMessage" : {
+      "required" : ["userId", "currencyFrom", "currencyTo", "amountBuy", "amountSell", "rate", "timePlace", "originatingCountry"],
+      "properties" : {
+        "userId" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "currencyFrom" : {
+          "type" : "string"
+        },
+        "currencyTo" : {
+          "type" : "string"
+        },
+        "amountBuy" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "amountSell" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "rate" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "timePlace" : {
+          "decription" : "it's of plain string type because as on task definition",
+          "type" : "string"
+        },
+        "originatingCountry" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ExceptionResponse" : {
+      "properties" : {
+        "message" : {
+          "type" : "string"
+        },
+        "exceptionClass" : {
+          "type" : "string"
+        },
+        "causeMessage" : {
+          "type" : "string"
+        },
+        "stackTrace" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/StackTraceElement"
+          }
+        }
+      }
+    },
+    "StackTraceElement" : {
+      "properties" : {
+        "declaringClass" : {
+          "type" : "string"
+        },
+        "methodName" : {
+          "type" : "string"
+        },
+        "fileName" : {
+          "type" : "string"
+        },
+        "lineNumber" : {
+          "type" : "integer",
+          "format" : "int32" 
+        }
+      }
+    }
+  }
+}

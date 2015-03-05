@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openejb-jar xmlns="http://www.openejb.org/xml/ns/openejb-jar-2.1">
+	<pojo-deployment class-name="jaxrs-application">
+		<properties>
+			cxf.jaxrs.providers = com.cfair.trial.util.JacksonJsonProviderExt,\
+				com.cfair.trial.util.JsonMappingExceptionMapper,\
+				com.cfair.trial.util.JsonParseExceptionMapper
+		</properties>
+	</pojo-deployment>
+</openejb-jar>
