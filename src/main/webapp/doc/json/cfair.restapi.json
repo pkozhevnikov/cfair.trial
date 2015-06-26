@@ -155,7 +155,7 @@
           "format" : "double"
         },
         "timePlace" : {
-          "decription" : "it's of plain string type because as on task definition",
+          "description" : "it's of plain string type as on task definition",
           "type" : "string"
         },
         "originatingCountry" : {
